@@ -7,12 +7,7 @@ export function Button({title, image, isInvisible = false, ...rest}) {
       isInvisible={isInvisible}
       {...rest}
     >
-      {
-        image ?
-        <img src={image} alt="ícone do botão"/>
-        :
-        ''
-      }
+      { image ? <img src={image} alt="ícone do botão"/> : ''}
       {title}
     </Container>
   )
