@@ -17,7 +17,7 @@ export function Header() {
           <strong>Food explorer</strong>
         </Logo>
 
-        <Nav>
+        <Nav isVisible={menuIsVisible}>
           <Search>
             {<FiSearch size={24} />}
             <input 
