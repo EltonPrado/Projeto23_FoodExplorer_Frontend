@@ -38,6 +38,8 @@ O projeto foi desenvolvido como desafio final do programa [Explorer da Rocketsea
 
 <br>
 
+**IMPORTANTE**: O frontend da aplicação encontra-se em desenvolvimento.
+
 **OBS**: Para informações mais detalhadas, acessar o [Backend da aplicação](https://github.com/EltonPrado/Projeto23_FoodExplorer_Backend).
 
 
