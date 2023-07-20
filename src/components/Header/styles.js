@@ -141,7 +141,7 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.1rem;
+  gap: .8rem;
 
   background-color: ${({ theme }) => theme.COLORS.RED_200};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
