@@ -8,7 +8,8 @@ export const Container = styled.div`
   grid-template-rows: 10.4rem auto;
   grid-template-areas: 
   "header"
-  "content";
+  "content"
+  "footer";
 `;
 
 export const Content = styled.div`

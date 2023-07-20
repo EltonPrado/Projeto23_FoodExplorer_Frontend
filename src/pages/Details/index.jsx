@@ -1,4 +1,5 @@
 import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
 
 import { Container, Content } from './styles';
 
@@ -14,6 +15,7 @@ export function Details(){
           <span>Por Elton Prado</span>
         </div>
       </Content>
+      <Footer />
     </Container>
   )
 }
