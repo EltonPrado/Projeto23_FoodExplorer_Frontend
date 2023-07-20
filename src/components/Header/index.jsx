@@ -14,7 +14,7 @@ export function Header() {
       <Content>
         <Logo>
           <img src={logo} alt="logomarca polígono azul" />
-          <strong>Food explorer</strong>
+          <strong>food explorer</strong>
         </Logo>
 
         <Nav isVisible={menuIsVisible}>
