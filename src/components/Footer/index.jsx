@@ -7,7 +7,7 @@ export function Footer() {
     <Container>
       <Content>
         <div>
-          <img src={logoFooter} alt="Logo" />
+          <img src={logoFooter} alt="Logo do food explorer" />
           <span>food explorer</span>
         </div>
         <p>© 2023 - Todos os direitos reservados.</p>

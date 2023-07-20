@@ -5,7 +5,6 @@ export const Container = styled.footer`
 
   height: 12.4rem;
   width: 100%;
-  margin-top: 10rem;
 
   background-color: ${({ theme }) => theme.COLORS.DARK_600};
 `;
