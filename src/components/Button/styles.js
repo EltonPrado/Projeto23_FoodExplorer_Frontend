@@ -6,7 +6,7 @@ export const Container = styled.button`
 
   border: none;
   border-radius: 0.8rem;
-  background: ${({ theme }) => theme.COLORS.RED_100};
+  background: ${({ theme }) => theme.COLORS.RED_200};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
   
   font-size: 1.4rem;
