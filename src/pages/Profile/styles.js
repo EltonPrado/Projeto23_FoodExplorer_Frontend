@@ -17,9 +17,36 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.COLORS.LIGHT_400};
     }
   }
+
+  @media (max-width: 425px) {
+    > header {
+      padding: 2rem;
+    }
+  }
 `;
 
 export const Form = styled.form`
   max-width: 34rem;
-  margin: 3.2rem auto 0;
+  margin: 10.2rem auto 0;
+`;
+
+export const ButtonSave = styled.div`
+  width: 100%;
+  height: 4.8rem;
+  margin-top: 3.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem;
+
+  border: 0;
+  border-radius: 0.8rem;
+  background: ${({ theme }) => theme.COLORS.RED_200};
+  cursor: pointer;
+
+  &:hover {
+    transition: .2s;
+    background: ${({ theme }) => theme.COLORS.RED_100};
+  }
 `;

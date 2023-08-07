@@ -5,8 +5,7 @@ import { FiChevronLeft } from 'react-icons/fi';
 import { useAuth } from '../../hooks/auth';
 
 import { Input } from '../../components/Input';
-import { Button } from '../../components/Button';
-import { Container, Form } from "./styles";
+import { Container, Form, ButtonSave } from "./styles";
 
 export function Profile() {
   const { user, updateProfile } = useAuth();
@@ -60,7 +59,7 @@ export function Profile() {
           onChange={e => setPasswordNew(e.target.value)}
         />
 
-        <Button title="Salvar" onClick={handleUpdate} />
+        <ButtonSave onClick={handleUpdate}>Salvar</ButtonSave>
       </Form>
     </Container>
   )  
