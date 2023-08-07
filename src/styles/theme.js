@@ -15,12 +15,16 @@ export default {
     LIGHT_500: "#7C7C8A", 
     LIGHT_700: "#4D585E",
     
-    RED_100: "#750310", /* Cor - hover do botão */
-    RED_200: "#92000E", /* Cor - padrão dos botões */
-    RED_300: "#AB222E", /* Cor - hover do botão */
-    RED_400: "#AB4D55", /* Cor - salvar alterações */
+    RED_100: "#750310",
+    RED_200: "#92000E",
+    RED_300: "#AB222E",
+    RED_400: "#AB4D55",
+
+    GREEN_100: "#04D361",
+
+    ORANGE_100: "#FBA94C",
 
     BLUE_100: "#065E7C",
-    BLUE_200: "#82F3FF"
+    BLUE_200: "#82F3FF",
   }
 };
