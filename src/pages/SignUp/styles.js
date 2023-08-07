@@ -62,4 +62,10 @@ export const Form = styled.form`
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
     border-radius: 1.6rem;
   }
+
+  @media (max-width: 425px) {
+    > legend {
+      display: none;
+    }
+  }
 `;
