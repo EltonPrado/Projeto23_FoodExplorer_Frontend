@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
   grid-area: header;
@@ -15,6 +15,7 @@ export const Content = styled.div`
   height: 10.4rem;
   margin-inline: auto;
   padding-inline: 4rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,14 +46,35 @@ export const Content = styled.div`
   }
 `;
 
-export const Logo = styled.div` //transformar em link para voltar ao inicio
+export const Logo = styled(Link)`
   display: flex;
   align-items: center;
   gap: 1.1rem;
 
   font-size: 2.4rem;
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
-  cursor: pointer;
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    font-size: 2.4rem;
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+    cursor: pointer;
+
+    > strong {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    > span {
+      font-size: 1.4rem;
+      color: ${({ theme }) => theme.COLORS.BLUE_200};
+    }
+  }
 `;
 
 export const Nav = styled.div`
@@ -62,19 +84,24 @@ export const Nav = styled.div`
   right: 0;
   bottom: 0;
   z-index: 5;
-  height: 40rem;
-
-  background-color: ${({ theme }) => theme.COLORS.DARK_200};
-  padding-inline: 4rem;
-  padding-top: 5rem;
+  height: 63rem;
 
   display: flex;
   flex: 1;
   flex-direction: column;
-  align-items: center;
   gap: 3.2rem;
 
+  padding-inline: 2.8rem;
+  padding-top: 3.6rem;
+  background-color: ${({ theme }) => theme.COLORS.DARK_400};
+
   transition: all 0.4s;
+
+  @media (min-width: 768px) {
+    span {
+      display: none;
+    }
+  }
 
   @media (min-width: 768px) {
     position: relative;
@@ -132,37 +159,118 @@ export const Search = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const NewDish = styled(Link)`
   width: 100%;
-  height: 5.6rem;
-  border: none;
-  border-radius: 0.5rem;
 
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: .8rem;
+  font-size: 2.4rem;
+  gap: 5rem;
 
-  background-color: ${({ theme }) => theme.COLORS.RED_200};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
-  font-size: 1.4rem;
+  background: transparent;
+  border: none;
 
-  &:disabled {
-    background-color: ${({ theme }) => theme.COLORS.RED_100};
+  > svg {
+    font-size: 2.4rem;
   }
 
   @media (min-width: 768px) {
     width: 21.6rem;
+    height: 5.6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+
+    border: none;
+    border-radius: 0.5rem;
+
+    background-color: ${({ theme }) => theme.COLORS.RED_200};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    font-size: 1.4rem;
   }
 `;
 
-export const Logout = styled.div` //transformar em link para sair do app
-  > svg {
-    font-size: 2.2rem;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
-  }
+export const Favorites = styled.button`
+  display: flex;
+  align-items: center;
+  font-size: 2.4rem;
+  gap: 4rem;
+  color: ${({ theme }) => theme.COLORS.LIGHT_300};
+  border: none;
+  background: none;
 
-  svg:hover {
-    cursor: pointer;
+  > svg {
+    font-size: 2.4rem;
+  }
+`;
+
+export const Orders = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  
+  font-size: 2.4rem;
+  color: ${({ theme }) => theme.COLORS.LIGHT_300};
+  background-color: transparent;
+
+  border: none;
+`;
+
+export const Button = styled.button`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  font-size: 2.4rem;
+  gap: 4rem;
+  
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  background: transparent;
+  border: none;
+
+  @media (min-width: 768px) {
+    width: 21.6rem;
+    height: 5.6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+
+    border: none;
+    border-radius: 0.5rem;
+
+    background-color: ${({ theme }) => theme.COLORS.RED_200};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    font-size: 1.4rem;
+  }
+`;
+
+export const User = styled(Link)`
+  color: ${({ theme }) => theme.COLORS.LIGHT_300};
+  font-size: 2.4rem;
+
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+
+  > svg {
+    font-size: 2.4rem;
+  }
+`;
+
+export const Logout = styled(Link)`
+  color: ${({ theme }) => theme.COLORS.LIGHT_300};
+  font-size: 2.4rem;
+
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+
+  > svg {
+    font-size: 2.4rem;
   }
 `;
