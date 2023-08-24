@@ -1,61 +1,56 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
+import { useState } from 'react';
+import { useAuth } from '../../hooks/auth';
+import { useNavigate } from 'react-router-dom';
 
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { Textarea } from "../../components/Textarea";
 import { IngredientItem } from "../../components/IngredientItem";
-import { Dropdown } from "../../components/Dropdown";
 import { Footer } from "../../components/Footer";
 
-import { Container, Content, ButtonBack, Form, SectionIngredients, InputWrapper } from "./styles";
 import { FiChevronLeft, FiUpload } from 'react-icons/fi';
+import { Container, Content, ButtonBack, Form, SectionIngredients, InputWrapper } from "./styles";
 
 export function New() {
   const [imageFile, setImageFile] = useState(null);
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Escolha a categoria");
-  const [price, setPrice] = useState("");
-
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
 
   const [loading, setLoading] = useState(false);
 
   const { user } = useAuth();
   const navigate = useNavigate();
 
+  function handleBack() {
+    navigate(-1)
+  };
+
   function handleAddIngredient() {
-    setIngredients(prevState => [...prevState, newIngredient])
+    setIngredients(prevState => [...prevState, newIngredient]);
     setNewIngredient("");
   };
 
   function handleRemoveIngredient(deleted) {
-    setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
+    setIngredients((prevState) => prevState.filter((ingredient) => ingredient !== deleted));
   };
 
-  async function handleNewDish() {
+  function handleAddImage(event) {
+    const file = event.target.files[0]
+    setImageFile(file)
+  };
+
+  async function handleNewFood() {
     if (!imageFile) {
       return alert("Adicione uma imagem para o prato")
     }
 
-    if (!title) {
-      return alert("Adicione um titulo para o prato")
-    }
-
-    if (!description) {
-      return alert("Adicione uma descrição para o prato")
-    }
-
-    if (!category) {
-      return alert("Adicione um categoria para o prato")
-    }
-
-    if (!price) {
-      return alert("Adicione um preço para o prato")
+    if (!title || !description || !category || !price) {
+      return alert("Preencha todos os campos!")
     }
 
     if (newIngredient) {
@@ -78,7 +73,7 @@ export function New() {
       formData.append("ingredients", ingredient)
     ))
 
-    await api.post("/dishes", formData);
+    await api.post("/foods", formData);
     alert("Prato cadastrado com sucesso");
     navigate("/")
 
@@ -92,8 +87,8 @@ export function New() {
       {
         user.isAdmin &&
         <Content>
-          <ButtonBack>
-            <Link to="/"> <FiChevronLeft size={32}/>Voltar</Link>
+          <ButtonBack onClick={handleBack}>
+            <span><FiChevronLeft size={32}/>Voltar</span>
           </ButtonBack>
 
           <Form>
@@ -112,7 +107,7 @@ export function New() {
                     <input 
                       id="image" 
                       type="file"
-                      onChange={e => setImageFile(e.target.files[0])}
+                      onChange={handleAddImage}
                     />
                   </div>
                 </label>
@@ -126,21 +121,27 @@ export function New() {
                 onChange={e => setTitle(e.target.value)}
               />
 
-              <Dropdown
-                category={category}
-                setCategory={setCategory}
-              />
+              <div className="selectBox">
+                <label htmlFor="category">Categoria</label>
+                <select id="category" onChange={e => setCategory(e.target.value)}>
+                  <option select disabled value="">Selecione</option>
+                  <option value="Refeições">Refeições</option>
+                  <option value="Sobremesas">Sobremesas</option>
+                  <option value="Bebidas">Bebidas</option>
+                </select>
+              </div>
             </InputWrapper>
 
             <InputWrapper>
               <SectionIngredients>
                 <span>Ingredientes</span>
-                <div>
+                <div className="ingredientsFormBox">
                   {
                     ingredients.map((ingredient, index) => (
                       <IngredientItem 
                         key={String(index)} 
                         value={ingredient}
+                        onChange={(e) => setNewIngredient(e.target.value)}
                         onClick={() => handleRemoveIngredient(ingredient)} 
                       />
                     ))
@@ -148,9 +149,9 @@ export function New() {
                   
                   <IngredientItem 
                     isNew 
-                    value={newIngredient}
                     placeholder="Adicionar"
-                    onChange={e => setNewIngredient(e.target.value)}
+                    value={newIngredient}
+                    onChange={(e) => setNewIngredient(e.target.value)}
                     onClick={handleAddIngredient}
                   />
                 </div>
@@ -158,6 +159,7 @@ export function New() {
 
               <div className="smallBox">
                 <Input
+                  className="priceInput"
                   label="price" 
                   title="Preço" 
                   type="text" 
@@ -171,15 +173,15 @@ export function New() {
               label="Description" 
               title="Descrição" 
               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
-              onChange={e => setDescription(e.target.value)}
+              onChange={(e) => setDescription(e.target.value)}
             />
 
             <button
               type="button"
-              onClick={handleNewDish}
+              onClick={handleNewFood}
               disabled={loading}
             >
-              {loading ? "Salvando alterações" : "Salvar alterações"}
+              {loading ? "Adicionando prato" : "Adicionar prato"}
             </button>
           </Form>
         </Content>

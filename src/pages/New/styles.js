@@ -122,6 +122,28 @@ export const InputWrapper = styled.div`
   margin-bottom: 4rem;
   gap: 4rem;
 
+  .selectBox {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    select {
+      width: 100%;
+      height: 4.8rem;
+      min-width: 31.6rem;
+      padding: 1.2rem 1.4rem;
+
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
+
+      border: none;
+      border-radius: 0.8rem;
+      background-color: ${({ theme }) => theme.COLORS.DARK_900};
+    }
+  }
+
   @media (min-width: 768px) {
     flex-wrap: nowrap;
     column-gap: 3.2rem;
