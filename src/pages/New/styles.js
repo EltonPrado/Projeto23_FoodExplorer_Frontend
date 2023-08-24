@@ -29,12 +29,13 @@ export const ButtonBack = styled.div`
   margin: 2.4rem auto 4rem;
   display: flex;
  
-  > a {
+  > span {
     display: flex;
     align-items: center;
     font-size: clamp(1.8rem, .4rem + 3vw, 2.4rem);
 
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {
