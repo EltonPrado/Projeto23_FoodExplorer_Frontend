@@ -86,7 +86,7 @@ export function Details(){
                   ))}
               </Ingredients>
 
-              {user.isAdmin === 0 && (
+              {user.isAdmin === 1 && (
                 <Info>
                   <div className="foodEdit">
                     <Button title="Editar Prato" onClick={() => handleEditFood(data.id)} />
@@ -94,7 +94,7 @@ export function Details(){
                 </Info>
               )}
 
-              {user.isAdmin === 1 && (
+              {user.isAdmin === 0 && (
                 <Info>
                   <button className="btn" onClick={handleRemoveQuantity}> 
                       <FiMinus size={25} />
