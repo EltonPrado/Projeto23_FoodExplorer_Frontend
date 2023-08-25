@@ -9,9 +9,8 @@ export const Container = styled.button`
   background: ${({ theme }) => theme.COLORS.RED_200};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
   
-  font-size: 1.4rem;
-
   display: ${({ isInvisible }) => isInvisible ? 'none': 'flex'};
+  font-size: 1.4rem;
   align-items: center;
   justify-content: center;
   gap: 1.1rem;
