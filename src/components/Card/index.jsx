@@ -10,12 +10,11 @@ import { PiPencilSimpleBold } from 'react-icons/pi'
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { FaAngleRight } from 'react-icons/fa'
 
-import { Container } from './styles';
-import { Button } from '../Button';
-
 import heart from '../../assets/heart.svg';
 import heartFill from '../../assets/heart_fill.svg';
 
+import { Button } from '../Button';
+import { Container } from './styles';
 
 export function Card({data, ...rest}) {
   const [quantity, setQuantity] = useState(1);
@@ -26,7 +25,7 @@ export function Card({data, ...rest}) {
   
   const isFavorite = favorites.some((food) => food.title === data.title)
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const imageURL = `${api.defaults.baseURL}/files/${data.image}`;
 
@@ -60,7 +59,7 @@ export function Card({data, ...rest}) {
     <Container {...rest}>
       {
         user.isAdmin ? 
-        <button onClick={handleEditFood}>
+        <button onClick={() => handleEditFood(data.id)}>
           <PiPencilSimpleBold size={25}/>
         </button>
         :
@@ -73,7 +72,7 @@ export function Card({data, ...rest}) {
         <img src={imageURL} alt={data.title} />
       </div>
 
-      <a type='button' onClick={handleDetails}>
+      <a type='button' onClick={() => handleDetails(data.id)}>
         <h3>{data.title} <FaAngleRight /></h3>
       </a>
 
