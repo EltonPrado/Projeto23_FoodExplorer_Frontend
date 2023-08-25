@@ -84,8 +84,7 @@ export function New() {
     <Container>
       <Header />
 
-      {
-        user.isAdmin &&
+      {user.isAdmin === 1 && (
         <Content>
           <ButtonBack onClick={handleBack}>
             <span><FiChevronLeft size={32}/>Voltar</span>
@@ -185,7 +184,7 @@ export function New() {
             </button>
           </Form>
         </Content>
-      }
+      )}
 
       <Footer />
     </Container>
