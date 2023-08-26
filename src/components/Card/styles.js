@@ -14,7 +14,8 @@ export const Container = styled.div`
 
   flex: none;
 
-  > button:first-child {
+  > .btnEditFood,
+    .btnFavorite {
     display: flex;
     position: absolute;
     top: 1.6rem;
@@ -28,24 +29,25 @@ export const Container = styled.div`
     }
   }
 
-  > div:nth-child(2) {
+  > .ImageFood {
     width: 17.6rem;
     height: 17.6rem;
+
     img {
       width: 100%;
     }
   }
 
-  > a {
+  > .titleFood {
     h3 {
-    margin: 1.5rem 0;
-    font-size: 2.4rem;
-    font-weight: bold;
+      margin: 1.5rem 0;
+      font-size: 2.4rem;
+      font-weight: bold;
 
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+      color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
-    display: flex;
-    align-items: center;
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -62,7 +64,7 @@ export const Container = styled.div`
     margin-block: 1.5rem;
   }
 
-  > div:last-child {
+  > .quantity {
     display: flex;
     align-items: center;
     gap: 1.6rem;

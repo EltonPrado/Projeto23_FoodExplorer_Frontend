@@ -19,7 +19,7 @@ export function Card({data, ...rest}) {
   const [quantity, setQuantity] = useState(1);
 
   const { user } = useAuth();
-  const { favorites, addFoodToFavorite, removeFoodFromFavorite } = useFavorite()
+  const { favorites, addFoodToFavorite, removeFoodFromFavorite } = useFavorite();
   
   const isFavorite = favorites.some((food) => food.title === data.title)
 
@@ -55,33 +55,42 @@ export function Card({data, ...rest}) {
 
   return (
     <Container {...rest}>
-      {
-        user.isAdmin ? 
-        <button onClick={() => handleEditFood(data.id)}>
+      {user.isAdmin ? 
+        <button 
+          className="btnEditFood" 
+          onClick={() => handleEditFood(data.id)}
+        >
           <PiPencilSimpleBold size={25}/>
         </button>
         :
-        <button type='button' onClick={() => isFavorite ? removeFoodFromFavorite(data) : addFoodToFavorite(data)}> 
+        <button 
+          className="btnFavorite" 
+          type='button' 
+          onClick={() => isFavorite ? removeFoodFromFavorite(data) : addFoodToFavorite(data)}
+        > 
           <img src={isFavorite ?  heartFill : heart} alt="heart" />  
         </button>
       }
       
-      <div>
+      <div className="ImageFood">
         <img src={imageURL} alt={data.title} />
       </div>
 
-      <a type='button' onClick={() => handleDetails(data.id)}>
+      <a 
+        className="titleFood"
+        type='button' 
+        onClick={() => handleDetails(data.id)}
+      >
         <h3>{data.title} <FaAngleRight /></h3>
       </a>
 
       <p>{data.description}</p>
       <strong>R$ {data.price}</strong>
 
-      {
-        user.isAdmin ?
+      {user.isAdmin ?
         <div></div>
         :
-        <div>
+        <div className="quantity">
           <button className="btn" onClick={handleRemoveQuantity}>
             <FiMinus size={25}/>
           </button>
