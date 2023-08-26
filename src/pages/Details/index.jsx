@@ -1,5 +1,4 @@
 import { api } from '../../services/api';
-import { useCart } from '../../hooks/cart';
 import { useAuth } from '../../hooks/auth';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -19,8 +18,6 @@ export function Details(){
   const { user } = useAuth();
   const params = useParams();
   const navigate = useNavigate();
-  
-  const { handleAddFoodToCart } = useCart();
 
   const imageURL = data && `${api.defaults.baseURL}/files/${data.image}`;
 
@@ -107,10 +104,7 @@ export function Details(){
                     </button>
                     
                     <div>
-                      <Button 
-                        title={`incluir - R$ ${data.price}`}
-                        onClick={() => handleAddFoodToCart(data, quantity, imageURL)}
-                      />
+                      <Button title={`incluir - R$ ${data.price}`}/>
                     </div>
                 </Info>
               )}
