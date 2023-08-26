@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
 import { useFavorite } from '../../hooks/favorite';
-import { useCart } from '../../hooks/cart';
 
 import { PiPencilSimpleBold } from 'react-icons/pi'
 import { FiMinus, FiPlus } from 'react-icons/fi';
@@ -21,7 +20,6 @@ export function Card({data, ...rest}) {
 
   const { user } = useAuth();
   const { favorites, addFoodToFavorite, removeFoodFromFavorite } = useFavorite()
-  const { handleAddFoodToCart } = useCart();
   
   const isFavorite = favorites.some((food) => food.title === data.title)
 
@@ -94,7 +92,7 @@ export function Card({data, ...rest}) {
             <FiPlus size={25}/>
           </button>
 
-          <Button title="incluir" onClick={() => handleAddFoodToCart(data, quantity, imageURL)} />
+          <Button title="incluir"/>
         </div>
       } 
     </Container>
