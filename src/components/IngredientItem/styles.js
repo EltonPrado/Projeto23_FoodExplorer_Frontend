@@ -30,7 +30,7 @@ export const Container = styled.div`
   > input {
     width: 10rem;
     height: 3.2rem;
-    padding: 1.2rem;
+    padding: 1.6rem;
     font-size: 1.6rem;
 
     color: ${({ theme, isNew }) => isNew ? theme.COLORS.LIGHT_500 : '#FFFFFF'};
