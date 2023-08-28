@@ -68,7 +68,7 @@ export function Card({data, ...rest}) {
           type='button' 
           onClick={() => isFavorite ? removeFoodFromFavorite(data) : addFoodToFavorite(data)}
         > 
-          <img src={isFavorite ?  heartFill : heart} alt="heart" />  
+          <img src={isFavorite ?  heartFill : heart} alt="Coração de favoritar prato" />  
         </button>
       }
       
@@ -84,12 +84,10 @@ export function Card({data, ...rest}) {
         <h3>{data.title} <FaAngleRight /></h3>
       </a>
 
-      <p>{data.description}</p>
-      <strong>R$ {data.price}</strong>
+      <p className="foodDescription">{data.description}</p>
+      <strong className="foodPrice">R$ {data.price}</strong>
 
-      {user.isAdmin ?
-        <div></div>
-        :
+      {user.isAdmin === 0 && (
         <div className="quantity">
           <button className="btn" onClick={handleRemoveQuantity}>
             <FiMinus size={25}/>
@@ -103,7 +101,7 @@ export function Card({data, ...rest}) {
 
           <Button title="incluir"/>
         </div>
-      } 
+      )} 
     </Container>
   )
 }

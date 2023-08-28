@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 30rem;
+  width: 30.4rem;
   height: 46.2rem;
   border-radius: 0.8rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_200};
@@ -11,7 +11,6 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-
   flex: none;
 
   > .btnEditFood,
@@ -40,55 +39,61 @@ export const Container = styled.div`
 
   > .titleFood {
     h3 {
+      display: flex;
+      align-items: center;
       margin: 1.5rem 0;
+
       font-size: 2.4rem;
       font-weight: bold;
 
-      color: ${({ theme }) => theme.COLORS.LIGHT_100};
-
-      display: flex;
-      align-items: center;
+      color: ${({ theme }) => theme.COLORS.LIGHT_300};
     }
   }
 
   > p {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     padding-inline: 4rem;
+
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
   }
 
   > strong {
+    font-family: 'Roboto', sans-serif;
     font-size: 3.2rem;
-    color: ${({ theme }) => theme.COLORS.BLUE_200};
+    font-weight: 400;
     margin-block: 1.5rem;
+
+    color: ${({ theme }) => theme.COLORS.BLUE_200};
   }
 
   > .quantity {
+    width: 20.8rem;
+    
     display: flex;
     align-items: center;
     gap: 1.6rem;
-    width: 20.8rem;
 
     position: relative;
     z-index: 10;
-
-    span {
-      font-size: 2rem;
-      font-weight: bold;
-    }
     
     .btn {
+      display: flex;
+      align-items: center;
+
       background: none;
       border: none;
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
-      display: flex;
-      align-items: center;
-
       position: relative;
-
       z-index: 6;
+    }
+
+    span {
+      font-size: 2rem;
+      font-weight: bold;
+      
+      color: ${({ theme }) => theme.COLORS.LIGHT_300};
     }
   }
 `
