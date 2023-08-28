@@ -1,14 +1,14 @@
 import { Container } from './styles';
 
-export function Button({title, image, isInvisible = false, ...rest}) {
+export function Button({title, image, loading = false, ...rest}) {
   return (
     <Container
       type="button"
-      isInvisible={isInvisible}
+      disabled={loading}
       {...rest}
     >
       { image ? <img src={image} alt="ícone do botão"/> : ''}
-      {title}
+      {loading ? "carregando..." : title}
     </Container>
   )
 }
