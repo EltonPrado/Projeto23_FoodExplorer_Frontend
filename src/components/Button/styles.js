@@ -13,7 +13,7 @@ export const Container = styled.button`
   align-items: center;
   justify-content: center;
   gap: 1.1rem;
-  padding: 2.4rem;
+  padding: 1.2rem 2.4rem;
 
   &:disabled {
     opacity: 0.5;
