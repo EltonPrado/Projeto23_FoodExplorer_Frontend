@@ -6,11 +6,12 @@ export function Footer() {
   return (
     <Container>
       <Content>
-        <div>
+        <div className="brand">
           <img src={logoFooter} alt="Logo do food explorer" />
           <span>food explorer</span>
         </div>
-        <p>© 2023 - Todos os direitos reservados.</p>
+        
+        <p> &copy; 2023 - Todos os direitos reservados.</p>
       </Content>
     </Container>
   )

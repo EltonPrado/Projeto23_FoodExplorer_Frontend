@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.footer`
   grid-area: footer;
 
-  height: 12.4rem;
+  height: 7.7rem;
   width: 100%;
 
   background-color: ${({ theme }) => theme.COLORS.DARK_600};
@@ -16,29 +16,31 @@ export const Content = styled.div`
   padding-inline: 4rem;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
+  justify-content: space-between;
   flex-wrap: wrap;
 
-  > div {
+  > .brand {
     display: flex;
     align-items: center;
-    gap: 1.1rem;
+    gap: 1rem;
 
     img {
-      opacity: .3;
+      opacity: 0.3;
     }
 
     span {
       font-size: 2.4rem;
-      opacity: .3;
+      font-weight: bold;
+
+      color: ${({ theme }) => theme.COLORS.LIGHT_700};
     }
   }
 
   > p {
     font-size: 1.4rem;
-    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+
+    color: ${({ theme }) => theme.COLORS.LIGHT_200};
   }
 
   @media (min-width: 768px) {
