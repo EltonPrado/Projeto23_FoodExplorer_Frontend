@@ -85,7 +85,7 @@ export function Details(){
 
               {user.isAdmin === 1 && (
                 <Info>
-                  <div className="foodEdit">
+                  <div className="btnEdit">
                     <Button title="Editar Prato" onClick={() => handleEditFood(data.id)} />
                   </div>
                 </Info>
@@ -93,7 +93,8 @@ export function Details(){
 
               {user.isAdmin === 0 && (
                 <Info>
-                  <button className="btn" onClick={handleRemoveQuantity}> 
+                  <div className="btnMinusPlus">
+                    <button className="btn" onClick={handleRemoveQuantity}> 
                       <FiMinus size={25} />
                     </button>
                 
@@ -102,10 +103,11 @@ export function Details(){
                     <button className="btn" onClick={handleAddQuantity}>
                       <FiPlus size={25} />
                     </button>
-                    
-                    <div>
-                      <Button title={`incluir - R$ ${data.price}`}/>
-                    </div>
+                  </div>
+
+                  <div className="btnOrder">
+                    <Button title={`pedir - R$ ${data.price}`}/>
+                  </div>
                 </Info>
               )}
             </div>

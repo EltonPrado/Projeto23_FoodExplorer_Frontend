@@ -5,7 +5,7 @@ export const Container = styled.div`
   min-height: 100vh;
   
   display: grid;
-  grid-template-rows: 10.4rem auto 12.4rem;
+  grid-template-rows: 10.4rem auto 7.7rem;
   grid-template-areas: 
   "header"
   "content"
@@ -26,8 +26,9 @@ export const Content = styled.div`
   flex: 1;
 
   @media (min-width: 768px) {
-    flex-direction: column;
     width: 100%;
+    
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-inline: 12.3rem;
@@ -45,7 +46,7 @@ export const ButtonBack = styled.div`
     align-items: center;
     font-size: clamp(1.8rem, .4rem + 3vw, 2.4rem);
 
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    color: ${({ theme }) => theme.COLORS.LIGHT_300};
     cursor: pointer;
   }
 
@@ -55,13 +56,15 @@ export const ButtonBack = styled.div`
 `;
 
 export const Main = styled.main`
+  width: 31.6rem;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   .FoodPreview {
-    max-width: 25rem;
+    max-width: 26.3rem;
     border-radius: 50%;
 
     img {
@@ -78,10 +81,9 @@ export const Main = styled.main`
       font-family: 'Poppins', sans-serif;
 
     h1 {
-      margin-top: 2rem;
-      margin-bottom: 1.8rem;
+      margin: 2.4rem 0;
       font-size: clamp(2.4rem, 1rem + 3vw, 4rem);
-      font-weight: 700;
+      font-weight: 500;
     }
 
     p {
@@ -120,7 +122,7 @@ export const Main = styled.main`
 
 export const Ingredients = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1.2rem;
   align-items: center;
   margin-block: 3rem;
 `;
@@ -131,31 +133,37 @@ export const Info = styled.div`
   display: flex;
   align-items: center;
   margin-top: 2rem;
-  padding-inline: 2rem;
   gap: 1.7rem;
 
-  span {
-    font-size: 2rem;
-    font-weight: 700;
+  .btnEdit {
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
-    
-  .btn {
+
+  .btnMinusPlus {
     display: flex;
-    align-items: center;
+    gap: 1.6rem;
 
-    background: none;
-    border: none;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    span {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    
+    .btn {
+      display: flex;
+      align-items: center;
 
-    position: relative;
-    z-index: 6;
-  }
+      background: none;
+      border: none;
 
-  @media (min-width: 768px) {
-    padding-inline: 0;
-     
-    > strong{
-      min-width: 14rem;
-    } 
+      position: relative;
+      z-index: 6;
+    }
+
+    .btn,
+    span {
+      color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    }
   }
 `;
