@@ -7,6 +7,11 @@ export const Container = styled.section`
   > h2 {
     font-size: clamp(2rem, 2rem + 3vw, 3.2rem);
     margin-bottom: 4rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
   }
   
   @media (min-width: 768px) {
