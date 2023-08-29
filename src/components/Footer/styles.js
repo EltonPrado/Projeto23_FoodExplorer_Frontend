@@ -13,12 +13,16 @@ export const Content = styled.div`
   height: 100%;
   max-width: 136.8rem;
   margin-inline: auto;
-  padding-inline: 4rem;
+  padding-inline: 2rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (min-width: 768px) {
+    padding-inline: 12.3rem;
+  }
 
   > .brand {
     display: flex;
@@ -27,6 +31,10 @@ export const Content = styled.div`
 
     img {
       opacity: 0.3;
+
+      @media (max-width: 768px) {
+        width: 15%;
+      }
     }
 
     span {
@@ -34,16 +42,21 @@ export const Content = styled.div`
       font-weight: bold;
 
       color: ${({ theme }) => theme.COLORS.LIGHT_700};
+
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
     }
   }
 
   > p {
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.4rem;
 
     color: ${({ theme }) => theme.COLORS.LIGHT_200};
-  }
 
-  @media (min-width: 768px) {
-    padding-inline: 12.3rem;
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
 `;
