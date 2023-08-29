@@ -76,24 +76,34 @@ export const Container = styled.div`
 
     position: relative;
     z-index: 10;
-    
-    .btn {
+
+    .buttons {
       display: flex;
-      align-items: center;
+      gap: 1.4rem;
 
-      background: none;
-      border: none;
-      color: ${({ theme }) => theme.COLORS.LIGHT_100};
+      .btn {
+        display: flex;
+        align-items: center;
 
-      position: relative;
-      z-index: 6;
+        background: none;
+        border: none;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+        position: relative;
+        z-index: 6;
+      }
+
+      span {
+        font-size: 2rem;
+        font-weight: bold;
+        
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+      }
     }
 
-    span {
-      font-size: 2rem;
-      font-weight: bold;
-      
-      color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
     }
   }
-`
+`;

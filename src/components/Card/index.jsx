@@ -89,15 +89,17 @@ export function Card({data, ...rest}) {
 
       {user.isAdmin === 0 && (
         <div className="quantity">
-          <button className="btn" onClick={handleRemoveQuantity}>
-            <FiMinus size={25}/>
-          </button>
-          
-          <span>0{quantity}</span>
-          
-          <button className="btn" onClick={handleAddQuantity}>
-            <FiPlus size={25}/>
-          </button>
+          <div className="buttons">
+            <button className="btn" onClick={handleRemoveQuantity}>
+              <FiMinus size={25}/>
+            </button>
+            
+            <span>0{quantity}</span>
+            
+            <button className="btn" onClick={handleAddQuantity}>
+              <FiPlus size={25}/>
+            </button>
+          </div>
 
           <Button title="incluir"/>
         </div>
