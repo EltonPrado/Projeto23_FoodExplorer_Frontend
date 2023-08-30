@@ -11,70 +11,72 @@ export const Content = styled.div`
   
   @media (min-width: 768px) {
     padding-inline: 12.3rem;
-    margin-inline: auto;
+    margin: 0 auto;
   }
 `;
 
-export const Slogan = styled.div`
+export const Banner = styled.div`
   height: 12rem;
-  margin-top: 4.4rem;
-  margin-inline: auto;
-  padding-inline: 10.1rem;
-  margin-bottom: 6.2rem;
+  margin: 4.4rem 3.6rem 6.2rem;
   
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   position: relative;
-  
   border-radius: 0.8rem;
   background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
   
-  > img {
-    width: max(19.1rem);
+  .bannerImg {
+    width: 19.1rem;
+    min-height: 14.9rem;
+    
     left: -3rem;
     bottom: 0;
-
     position: absolute;
   }
 
-  > div {
-    margin-top: 2rem;
+  .bannerText {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     
-    h1 {
+    padding: 3.6rem 0 2.2rem 0;
+    padding-inline-start: 15rem;
+      
+    > h1 {
       font-family: 'Poppins', sans-serif;
       font-weight: 500;
-      font-size: clamp(2.6rem, 1rem + 3vw, 4rem);
+      font-size: clamp(1.4rem, 4vw, 4rem);
       margin-bottom: 0.3rem;
     }
 
-    p {
+    > p {
       font-family: 'Roboto', sans-serif;
       font-weight: normal;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
-      margin-bottom: 2.2rem;
     }
   }
 
   @media (min-width: 768px) {
     height: 26.8rem;
-    margin-top: 16.4rem;
+    margin: 16.4rem auto 6.2rem;
     border-radius: 0.8rem;
-    justify-content: flex-end;
+    justify-content: end;
 
     display: flex;
     align-items: center;
     position: relative;
 
-    > img {
-      width: max(65.6rem);
+    .bannerImg {
+      width: 65.6rem;
+      height: 41.2rem;
+
       position: absolute;
       bottom: 0rem;
-      left: -5rem;
+      left: -10rem;
     }
 
-    > div {
-      margin-top: 0;
+    .bannerText {
+      padding-top: 0rem;
+      padding-inline-end: 10rem;
     }
   }
 `;

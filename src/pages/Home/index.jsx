@@ -9,7 +9,7 @@ import { Footer } from '../../components/Footer';
 
 import coverPhoto from '../../assets/cover.png';
 
-import { Container, Content, Slogan } from './styles';
+import { Container, Content, Banner } from './styles';
 
 export function Home() {
   const [foods, setFoods] = useState([])
@@ -39,14 +39,14 @@ export function Home() {
       <Header search={setSearch} functionButton={() => handleFavorites(favorites)}/>
 
       <Content>
-        <Slogan>
-          <img src={coverPhoto} alt="Imagem de macarons do slogan" />
+        <Banner>
+          <img className="bannerImg" src={coverPhoto} alt="Imagem de macarons do banner" />
 
-          <div>
+          <div className="bannerText">
             <h1>Sabores inigualáveis</h1>
             <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
           </div>
-        </Slogan>
+        </Banner>
 
         {
           foods.filter(food => food.category == "Refeições").length > 0 &&
