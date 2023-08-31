@@ -134,6 +134,7 @@ export function New() {
             <InputWrapper>
               <SectionIngredients>
                 <span>Ingredientes</span>
+                
                 <div className="ingredientsFormBox">
                   {
                     ingredients.map((ingredient, index) => (
