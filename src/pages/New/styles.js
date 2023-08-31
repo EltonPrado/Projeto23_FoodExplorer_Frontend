@@ -165,7 +165,6 @@ export const InputWrapper = styled.div`
 
 export const SectionIngredients = styled.div`
   width: 100%;
-  height: 4.8rem;
 
   display: flex;
   margin-bottom: 2.4rem;
