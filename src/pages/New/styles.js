@@ -32,7 +32,7 @@ export const ButtonBack = styled.div`
   > span {
     display: flex;
     align-items: center;
-    font-size: clamp(1.8rem, .4rem + 3vw, 2.4rem);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
 
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
     cursor: pointer;
@@ -53,18 +53,48 @@ export const Form = styled.form`
       margin-bottom: 3.2rem;
     }
   }
- 
-  .smallBox {
+
+  > button {
     width: 100%;
+    height: 4.8rem;
+    margin-top: 2.4rem;
+    align-self: flex-end;
+
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    background-color: ${({ theme }) => theme.COLORS.RED_400};
+    border: none;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.COLORS.RED_300};
+      transition: .5s;
+      cursor: pointer;
+    }
 
     @media (min-width: 768px) {
-      max-width: 22.9rem;
+      width: 17.2rem;
     }
+  }
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  
+  margin-bottom: 4rem;
+  gap: 4rem;
+
+  .smallBox {
+    width: 100%;
 
     #file {
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
+
+      span {
+        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+      }
 
       div {
         width: 100%;
@@ -75,7 +105,7 @@ export const Form = styled.form`
         justify-content: center;
         gap: 1rem;
 
-        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
         border-radius: 0.8rem;
         background-color: ${({ theme }) => theme.COLORS.DARK_900};
@@ -91,57 +121,39 @@ export const Form = styled.form`
     input[type="file"] {
       display: none;
     }
+
+    @media (min-width: 768px) {
+      max-width: 22.9rem;
+    }
   }
 
- > button {
-   width: 100%;
-   height: 4.8rem;
-   margin-top: 2.4rem;
-   align-self: flex-end;
-
-   color: ${({ theme }) => theme.COLORS.LIGHT_100};
-   background-color: ${({ theme }) => theme.COLORS.RED_400};
-   border: none;
-   border-radius: 0.5rem;
-
-   &:hover {
-    background-color: ${({ theme }) => theme.COLORS.RED_300};
-    transition: .5s;
-    cursor: pointer;
-   }
-
-   @media (min-width: 768px) {
-    width: 17.2rem;
-   }
- }
-`;
-
-export const InputWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  
-  margin-bottom: 4rem;
-  gap: 4rem;
-
   .selectBox {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
 
+    label {
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    }
+
     select {
       width: 100%;
       height: 4.8rem;
-      min-width: 31.6rem;
       padding: 1.2rem 1.4rem;
 
       font-family: 'Roboto', sans-serif;
       font-size: 1.6rem;
       font-weight: 400;
-      color: ${({ theme }) => theme.COLORS.LIGHT_400};
+      color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
       border: none;
       border-radius: 0.8rem;
       background-color: ${({ theme }) => theme.COLORS.DARK_900};
+    }
+
+    @media (min-width: 768px) {
+      max-width: 36.4rem;
     }
   }
 
@@ -154,13 +166,13 @@ export const InputWrapper = styled.div`
 export const SectionIngredients = styled.div`
   width: 100%;
   height: 4.8rem;
+
   display: flex;
+  margin-bottom: 2.4rem;
   flex-direction: column;
   gap: 0.8rem;
 
-  margin-bottom: 2.4rem;
-
-  > div {
+  .ingredientsFormBox {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -170,13 +182,13 @@ export const SectionIngredients = styled.div`
     border-radius: 0.8rem;
     background-color: ${({ theme }) => theme.COLORS.DARK_900};
   }
+  
+  @media (min-width: 768px) {
+    margin-bottom: 0;
 
- @media (min-width: 768px) {
-   margin-bottom: 0;
-
-   > div {
-     max-height: 4.8rem;
-     gap: 2rem;
-   }
- }
+    .ingredientsFormBox {
+      max-height: 4.8rem;
+      gap: 2rem;
+    }
+  }
 `;

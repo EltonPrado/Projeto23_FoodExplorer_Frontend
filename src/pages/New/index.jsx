@@ -123,7 +123,7 @@ export function New() {
               <div className="selectBox">
                 <label htmlFor="category">Categoria</label>
                 <select id="category" onChange={e => setCategory(e.target.value)}>
-                  <option select disabled value="">Selecione</option>
+                  <option select disabled value="">Selecione a categoria:</option>
                   <option value="Refeições">Refeições</option>
                   <option value="Sobremesas">Sobremesas</option>
                   <option value="Bebidas">Bebidas</option>
