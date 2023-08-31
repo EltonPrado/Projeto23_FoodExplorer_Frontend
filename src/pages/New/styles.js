@@ -81,8 +81,8 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   
-  margin-bottom: 4rem;
-  gap: 4rem;
+  margin-bottom: 2.4rem;
+  gap: 2.4rem;
 
   .smallBox {
     width: 100%;
@@ -167,7 +167,6 @@ export const SectionIngredients = styled.div`
   width: 100%;
 
   display: flex;
-  margin-bottom: 2.4rem;
   flex-direction: column;
   gap: 0.8rem;
 
