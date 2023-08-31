@@ -9,7 +9,7 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.COLORS.LIGHT_400};
 `;
 
-export const TextareaInput= styled.textarea`
+export const TextareaInput = styled.textarea`
   width: 100%;
   height: 17.2rem;
   padding: 1.4rem;
