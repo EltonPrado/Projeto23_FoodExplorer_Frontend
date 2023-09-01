@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Container = styled.header`
+export const Container = styled.div`
   grid-area: header;
 
   height: 10.4rem;
@@ -14,13 +14,13 @@ export const Content = styled.div`
   max-width: 136.8rem;
   height: 10.4rem;
   margin-inline: auto;
-  padding-inline: 4rem;
+  padding-inline: 3.2rem;
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
-  > button {
+  .menu {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,7 @@ export const Content = styled.div`
     transition: all 1s;
 
     svg {
-      margin-top: .3rem;
+      margin-top: 0.3rem;
       color: white;
       font-size: 2.2rem;
     }
@@ -40,13 +40,13 @@ export const Content = styled.div`
   @media (min-width: 768px) {
     padding-inline: 12.3rem;
 
-    > button {
+    .menu {
       display: none;
     } 
   }
 `;
 
-export const Logo = styled(Link)`
+export const HeaderLogo = styled(Link)`
   display: flex;
   align-items: center;
   gap: 1.1rem;
@@ -77,14 +77,15 @@ export const Logo = styled(Link)`
   }
 `;
 
-export const Nav = styled.div`
+export const Navigation = styled.nav`
+  max-height: ${({ active }) => (active === 'true' ? '100%' : '0')};
+  
   position: absolute;
   top: 10.4rem;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 5;
-  height: 63rem;
 
   display: flex;
   flex: 1;
@@ -95,13 +96,11 @@ export const Nav = styled.div`
   padding-top: 3.6rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_400};
 
-  transition: all 0.4s;
+  opacity: ${({ active }) => (active === 'true' ? '1' : '0')};
+visibility: ${({ active }) => (active === 'true' ? 'visible' : 'hidden')};
+  transform: ${({ active }) => active ? 'translateY(0)' : 'translateY(-20%)'};
 
-  @media (min-width: 768px) {
-    span {
-      display: none;
-    }
-  }
+  transition: all 0.4s;
 
   @media (min-width: 768px) {
     position: relative;
@@ -120,10 +119,14 @@ export const Nav = styled.div`
 
     transform: translateY(0);
     transition: all 0s;
+
+    span {
+      display: none;
+    }
   }
 `;
 
-export const Search = styled.div`
+export const SearchBar = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
@@ -159,21 +162,23 @@ export const Search = styled.div`
   }
 `;
 
-export const NewDish = styled(Link)`
-  width: 100%;
-
+const buttonStyles = css`
   display: flex;
   align-items: center;
   font-size: 2.4rem;
-  gap: 5rem;
-
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
   background: transparent;
   border: none;
+  gap: 2rem;
 
   > svg {
     font-size: 2.4rem;
   }
+`;
+
+export const New = styled(Link)`
+  width: 100%;
+  ${buttonStyles}
 
   @media (min-width: 768px) {
     width: 21.6rem;
@@ -188,48 +193,26 @@ export const NewDish = styled(Link)`
     border-radius: 0.5rem;
 
     background-color: ${({ theme }) => theme.COLORS.RED_200};
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
     font-size: 1.4rem;
   }
 `;
 
 export const Favorites = styled.button`
-  display: flex;
-  align-items: center;
-  font-size: 2.4rem;
-  gap: 4rem;
-  color: ${({ theme }) => theme.COLORS.LIGHT_300};
-  border: none;
-  background: none;
+  ${buttonStyles}
 
-  > svg {
-    font-size: 2.4rem;
-  }
+  color: ${({ theme }) => theme.COLORS.LIGHT_300};
 `;
 
 export const Orders = styled.button`
-  display: flex;
-  align-items: center;
-  gap: 5rem;
-  
-  font-size: 2.4rem;
-  color: ${({ theme }) => theme.COLORS.LIGHT_300};
-  background-color: transparent;
+  ${buttonStyles}
 
-  border: none;
+  color: ${({ theme }) => theme.COLORS.LIGHT_300};
 `;
 
 export const Button = styled.button`
   width: 100%;
 
-  display: flex;
-  align-items: center;
-  font-size: 2.4rem;
-  gap: 4rem;
-  
-  color: ${({ theme }) => theme.COLORS.LIGHT_100};
-  background: transparent;
-  border: none;
+  ${buttonStyles}
 
   @media (min-width: 768px) {
     width: 21.6rem;
@@ -250,27 +233,13 @@ export const Button = styled.button`
 `;
 
 export const User = styled(Link)`
+  ${buttonStyles}
+
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
-  font-size: 2.4rem;
-
-  display: flex;
-  align-items: center;
-  gap: 5rem;
-
-  > svg {
-    font-size: 2.4rem;
-  }
 `;
 
 export const Logout = styled(Link)`
+  ${buttonStyles}
+
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
-  font-size: 2.4rem;
-
-  display: flex;
-  align-items: center;
-  gap: 5rem;
-
-  > svg {
-    font-size: 2.4rem;
-  }
 `;

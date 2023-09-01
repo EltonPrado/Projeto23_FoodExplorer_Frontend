@@ -1,100 +1,102 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../../hooks/auth';
-import { useCart } from '../../hooks/cart';
 import { useNavigate } from 'react-router-dom';
 
 import { CiForkAndKnife } from 'react-icons/ci';
-import { FiSearch, FiLogOut, FiX, FiMenu, FiUser } from 'react-icons/fi';
-import { Container, Content, Logo, Nav, Search, NewDish, Favorites, Button, Logout, User, Orders } from "./styles";
+import { 
+  FiSearch, 
+  FiLogOut, 
+  FiX, 
+  FiMenu, 
+  FiUser 
+} from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
 import receipt from '../../assets/receipt.svg';
 import heart from '../../assets/heart.svg';
 
-export function Header({search, functionButton}) {
-  const [menuIsVisible, setMenuIsVisible] = useState(false)
+import { 
+  Container, 
+  Content, 
+  Navigation, 
+  HeaderLogo, 
+  SearchBar, 
+  New, 
+  Favorites, 
+  Button, 
+  Logout, 
+  User, 
+  Orders 
+} from "./styles";
 
-  const { signOut, user } = useAuth();
-  const { cart, orders } = useCart();
+export function Header({ search, functionButton }) {
+  const [menuIsVisible, setMenuIsVisible] = useState(false);
 
+  const { user, signOut } = useAuth();
+  
   const navigate = useNavigate();
 
-  const isCartIsEmpty = cart.length === 0;
+  const toggleMenu = () => {
+    setMenuIsVisible(!menuIsVisible);
+  };
 
-  function handleGoToCart() {
-    navigate("/cart")
-  }
-
-  function handleGoToOrders() {
-    navigate("/orders")
-  }
-
-  function handleSignOut() {
-    navigate("/");
+  const handleSignOut = () => {
+    navigate('/');
     signOut();
-  }
+  };
 
   return(
     <Container>
       <Content>
         <button 
-          type="button"
-          onClick={() => setMenuIsVisible(!menuIsVisible)}
+          type="button" 
+          className="menu" 
+          onClick={toggleMenu}
         >
           {menuIsVisible ? <FiX /> : <FiMenu />}
         </button>
         
-        {
-          user.isAdmin ?
-          <Logo to="/">
-            <div className="logo">
-              <strong><img src={logo} alt="logomarca polígono azul"/>food explorer</strong>
-              <span>admin</span>
-            </div>
-          </Logo>
-          :
-          <Logo to="/">
-            <img src={logo} alt="logomarca polígono azul" />
-            <strong>food explorer</strong>
-          </Logo>
-        }
+        <HeaderLogo to="/">
+          <div className="logo">
+            <strong>
+              <img src={logo} alt="logomarca polígono azul" />
+              food explorer
+            </strong>
+            {user.isAdmin && <span>admin</span>}
+          </div>
+        </HeaderLogo>
 
-        <Nav isVisible={menuIsVisible}>
-          <Search>
+        <Navigation active={menuIsVisible ? 'true' : 'false'}>
+          <SearchBar>
             {<FiSearch size={24} />}
+
             <input 
               type="text" 
               placeholder="Busque por pratos ou ingredientes"
-              onChange={e => {search(e.target.value)}}
+              onChange={(e) => {search(e.target.value)}}
             />
-          </Search>
+          </SearchBar>
 
-          {
-            user.isAdmin ? 
-            <NewDish to="/new">{<CiForkAndKnife />}Novo prato</NewDish>
-            :
-            <Button
-              type='button'
-              onClick={handleGoToCart}
-              disabled={isCartIsEmpty}
-            >
+          {user.isAdmin ? (
+            <New to="/new" type="button">{<CiForkAndKnife />}Novo prato</New>
+          ) : (
+            <Button type='button'>
               <img src={receipt} alt="receipt"/>
-              Pedidos <span>({cart.length})</span>
+              Pedidos
             </Button>
-          }
+          )}
 
-          {
-            user.isAdmin ? 
-            <Orders type="button" onClick={handleGoToOrders}>
+          {user.isAdmin ? (
+            <Orders type="button">
               <img src={receipt} alt="receipt"/>
-              <span>({orders.length}) Pedidos</span>
+              <span>Pedidos</span>
             </Orders>
-            :
+          ) : (
             <Favorites type="button" onClick={functionButton}>
               <img src={heart} alt="favorites"/>
               <span>Favoritos</span>
             </Favorites>
-          }
+          )}
 
           <User to="/profile">
             <FiUser />
@@ -105,7 +107,7 @@ export function Header({search, functionButton}) {
             <FiLogOut />
             <span>Sair</span>
           </Logout>
-        </Nav>
+        </Navigation>
       </Content>
     </Container>
   )
