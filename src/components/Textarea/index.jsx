@@ -7,9 +7,7 @@ export function Textarea({label, title, value, ...rest }) {
         {title}
       </label>
       
-      <TextareaInput id={label} {...rest}>
-        {value}
-      </TextareaInput>
+      <TextareaInput id={label} {...rest} value={value} />
     </Container>
   )
 }
