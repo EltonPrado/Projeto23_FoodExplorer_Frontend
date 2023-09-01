@@ -20,8 +20,26 @@ export const Container = styled.div`
 
   @media (max-width: 425px) {
     > header {
-      padding: 2rem;
+      padding: 3.6rem;
     }
+  }
+`;
+
+export const ButtonBack = styled.div`
+  width: 100%;
+  display: flex;
+ 
+  > span {
+    display: flex;
+    align-items: center;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    padding-inline: 0;
   }
 `;
 

@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FiChevronLeft } from 'react-icons/fi';
 
 import { useAuth } from '../../hooks/auth';
 
 import { Input } from '../../components/Input';
-import { Container, Form, ButtonSave } from "./styles";
+import { Container, ButtonBack, Form, ButtonSave } from "./styles";
 
 export function Profile() {
   const { user, updateProfile } = useAuth();
@@ -15,6 +15,12 @@ export function Profile() {
   const [passwordOld, setPasswordOld] = useState();
   const [passwordNew, setPasswordNew] = useState();
 
+  const navigate = useNavigate();
+
+  function handleBack() {
+    navigate(-1)
+  };
+  
   async function handleUpdate() {
     const user = {
       name, 
@@ -29,7 +35,9 @@ export function Profile() {
   return(
     <Container>
       <header>
-        <Link to="/"><FiChevronLeft size={30}/></Link>
+        <ButtonBack type="button" onClick={handleBack}>
+          <span><FiChevronLeft size={30}/>Voltar</span>
+        </ButtonBack>
       </header>
 
       <Form>
