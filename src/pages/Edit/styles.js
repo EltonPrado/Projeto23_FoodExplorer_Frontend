@@ -1,46 +1,47 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
- width: 100%;
- min-height: 100vh;
+  width: 100%;
+  min-height: 100vh;
 
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Content = styled.main`
  width: 100%;
- flex: 1;
- max-width: 136.8rem;
  height: 100%;
- padding-inline: 4rem;
+
+ max-width: 136.8rem;
+ padding-inline: 3.2rem;
  margin-inline: auto;
+ flex: 1;
 
 
- @media (min-width: 768px) {
-   width: 100%;
-
-   padding-inline: 12.3rem;
-
- }
+  @media (min-width: 1024px) {
+    width: 100%;
+    padding-inline: 12.4rem;
+    align-items: center;
+  }
 `;
 
 export const ButtonBack = styled.div`
- width: 100%;
- margin: 2.4rem auto 4rem;
- display: flex;
+  width: 100%;
+  margin: 2.4rem auto 4rem;
+  display: flex;
  
- > a {
-   display: flex;
-   align-items: center;
-   font-size: clamp(1.8rem, .4rem + 3vw, 2.4rem);
+  > span {
+    display: flex;
+    align-items: center;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
 
-   color: ${({ theme }) => theme.COLORS.LIGHT_100};
- }
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    cursor: pointer;
+  }
 
- @media (min-width: 768px) {
-   padding-inline: 0;
- }
+  @media (min-width: 768px) {
+    padding-inline: 0;
+  }
 `;
 
 export const Form = styled.form`
@@ -54,18 +55,81 @@ export const Form = styled.form`
     }
   }
 
- .smallBox {
-    width: 100%;
+  .buttons {
+    display: flex;
+    align-self: flex-end;
+    
+    margin-top: 2.4rem;
+    gap: 3.2rem;
 
-    @media (min-width: 768px) {
-      max-width: 23rem;
+    #delete,
+    #save {
+      width: 100%;
+      height: 4.8rem;
+
+      border: none;
+      border-radius: 0.5rem;
+      color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+      @media (min-width: 768px) {
+        button {
+          display: flex;
+        }
+      }
     }
 
+    #delete {
+      background-color: ${({ theme }) => theme.COLORS.DARK_800};
+      
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      @media (min-width: 768px) {
+        width: 13.5rem;
+      }
+    }
+
+    #save {
+      align-self: flex-end;
+      background-color: ${({ theme }) => theme.COLORS.RED_400};
+      
+      &:hover {
+        background-color: ${({ theme }) => theme.COLORS.RED_300};
+        transition: .5s;
+        cursor: pointer;
+      }
+
+      @media (min-width: 768px) {
+        width: 17.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  
+  margin-bottom: 2.4rem;
+  gap: 2.4rem;
+
+  .smallBox {
+    width: 100%;
+
     #file {
-      color: ${({ theme }) => theme.COLORS.GRAY_200};
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
+
+      span {
+        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+      }
 
       div {
         width: 100%;
@@ -75,10 +139,13 @@ export const Form = styled.form`
         align-items: center;
         justify-content: center;
         gap: 1rem;
-        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
         border-radius: 0.8rem;
-        background-color: ${({ theme}) => theme.COLORS.DARK_900};
+        background-color: ${({ theme }) => theme.COLORS.DARK_900};
+
+        cursor: pointer;
 
         @media (min-width: 768px) {
           width: 22.9rem;
@@ -89,76 +156,11 @@ export const Form = styled.form`
     input[type="file"] {
       display: none;
     }
-  }
-
-  .buttons {
-    display: flex;
-    align-self: flex-end;
-    
-    margin-top: 2.4rem;
-    gap: 3.2rem;
-
-    @media (max-width: 768px) {
-      width: 100%;
-    }
-  }
-
-  #delete {
-    width: 100%;
-    height: 4.8rem;
-
-    border: none;
-    border-radius: 0.5rem;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    background-color: ${({ theme }) => theme.COLORS.DARK_800};
-    
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
 
     @media (min-width: 768px) {
-      width: 13.5rem;
-
-      button {
-        display: flex;
-      }
+      max-width: 22.9rem;
     }
   }
-
-  #save {
-    width: 100%;
-    height: 4.8rem;
-
-    border: none;
-    border-radius: 0.5rem;
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    background-color: ${({ theme }) => theme.COLORS.RED_400};
-
-    align-self: flex-end;
-    
-    &:hover {
-      background-color: ${({ theme }) => theme.COLORS.RED_300};
-      transition: .5s;
-      cursor: pointer;
-    }
-
-    @media (min-width: 768px) {
-      width: 17.2rem;
-
-      button {
-        display: flex;
-      }
-    }
-  }
-`;
-
-export const InputWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  
-  margin-bottom: 4rem;
-  gap: 4rem;
 
   @media (min-width: 768px) {
     flex-wrap: nowrap;
@@ -168,14 +170,12 @@ export const InputWrapper = styled.div`
 
 export const SectionIngredients = styled.div`
   width: 100%;
-  height: 4.8rem;
+
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 
-  margin-bottom: 8rem;
-
-  > div {
+  .ingredientsFormBox {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -189,7 +189,7 @@ export const SectionIngredients = styled.div`
   @media (min-width: 768px) {
     margin-bottom: 0;
 
-    > div {
+    .ingredientsFormBox {
       max-height: 4.8rem;
       gap: 2rem;
     }
