@@ -62,7 +62,7 @@ export function Header({ search, functionButton }) {
               <img src={logo} alt="logomarca polígono azul" />
               food explorer
             </strong>
-            {user.isAdmin && <span>admin</span>}
+            {user.isAdmin === 1 && <span>admin</span>}
           </div>
         </HeaderLogo>
 
