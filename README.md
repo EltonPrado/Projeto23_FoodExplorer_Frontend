@@ -33,7 +33,7 @@ O projeto foi desenvolvido como desafio final do programa [Explorer da Rocketsea
 
 ### Deploy
 
-Quer conferir o FoodExplorer? [Visite o projeto online.]()
+Quer conferir o FoodExplorer? [Visite o projeto online.](https://pffoodexplorer.netlify.app/)
 
 Acesse utilizando uma das duas opções de login abaixo ou crie seu próprio usuário.
 
