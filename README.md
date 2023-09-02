@@ -31,6 +31,23 @@
 ## Sobre
 O projeto foi desenvolvido como desafio final do programa [Explorer da Rocketseat](https://www.rocketseat.com.br/explorer). Ele segue a ideia de uma aplicação com cardápio interativo e digital para um restaurante fictício tendo 2 personas como foco principal: usuário administrador (dono do restaurante) e usuário comum (cliente).
 
+### Deploy
+
+Quer conferir o FoodExplorer? [Visite o projeto online.]()
+
+Acesse utilizando uma das duas opções de login abaixo ou crie seu próprio usuário.
+
+```bash
+# Login como admin:
+$ email: admin@email.com
+$ password: 123321
+```
+
+```bash
+# Login como user (já cadastrado):
+$ email: user@email.com
+$ password: 123321
+```
 
 ## Funcionalidades
 
